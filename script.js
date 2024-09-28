@@ -35,25 +35,44 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const postoSelect = document.getElementById('posto');
-    postos.forEach(posto => {
-        const option = document.createElement('option');
-        option.value = posto;
-        option.textContent = posto;
-        postoSelect.appendChild(option);
-    });
+    if (postoSelect) {
+        postos.forEach(posto => {
+            const option = document.createElement('option');
+            option.value = posto;
+            option.textContent = posto;
+            postoSelect.appendChild(option);
+        });
+    }
 
     const itensContainer = document.getElementById('itens');
-    for (let i = 1; i <= 30; i++) {
-        const div = document.createElement('div');
-        div.className = 'form-group inline-group';
-        div.innerHTML = `
-            <label>Item ${i}:</label>
-            <select name="item${i}">
-                ${itens.map(item => `<option value="${item}">${item}</option>`).join('')}
-            </select>
-            <input type="number" name="quantidade${i}" min="0" placeholder="Quantidade">
-        `;
-        itensContainer.appendChild(div);
+    if (itensContainer) {
+        for (let i = 1; i <= 30; i++) {
+            const div = document.createElement('div');
+            div.className = 'form-group inline-group';
+            
+            const label = document.createElement('label');
+            label.textContent = `Item ${i}:`;
+
+            const select = document.createElement('select');
+            select.name = `item${i}`;
+            itens.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item;
+                option.textContent = item;
+                select.appendChild(option);
+            });
+
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.name = `quantidade${i}`;
+            input.min = '0';
+            input.placeholder = 'Quantidade';
+
+            div.appendChild(label);
+            div.appendChild(select);
+            div.appendChild(input);
+            itensContainer.appendChild(div);
+        }
     }
 
     document.getElementById('pedidoForm').addEventListener('submit', function (event) {
