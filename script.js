@@ -1,8 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const itensContainer = document.getElementById('itens');
+    const postos = [
+        "AC DELCO", "ANHAIA", "ARICANDUVA (GM/KIA)", "BARUEL", "GALPÃO",
+        "GM SÃO BERNARDO DO CAMPO", "GUARULHOS", "LA PLAÇA", "MAUÁ", "NAZARÉ",
+        "OFICINA MOREIRA DE GODOY", "PENHA", "R JAFET", "SANTO ANDRÉ",
+        "SICOOB GUARULHOS", "SICOOB SANTO AMARO", "SICOOB SANTO ANDRÉ",
+        "SICOOB SÃO BERNARDO DO CAMPO", "SICOOB SÃO CAETANO DO SUL",
+        "VILA GUILHERME", "VILA MARIANA", "VW SÃO BERNARDO DO CAMPO"
+    ];
 
+    const postoSelect = document.getElementById('posto');
+    postos.forEach(posto => {
+        const option = document.createElement('option');
+        option.value = posto;
+        option.textContent = posto;
+        postoSelect.appendChild(option);
+    });
+
+    const itensContainer = document.getElementById('itens');
     for (let i = 1; i <= 30; i++) {
         const div = document.createElement('div');
+        div.className = 'form-group inline-group';
         div.innerHTML = `
             <label>Item ${i}:</label>
             <select name="item${i}">
