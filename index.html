@@ -3,32 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Solicitação de Pedido Mensal</title>
+    <title>Formulário de Pedido</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <form id="pedidoForm">
-        <div class="form-group inline-group">
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            <label for="telefone">Telefone:</label>
-            <input type="number" id="telefone" name="telefone" required>
-        </div>
-        <div class="form-group">
-            <label for="posto">Posto:</label>
-            <select id="posto" name="posto" required>
-                <!-- As opções serão adicionadas pelo script.js -->
-            </select>
-        </div>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="telefone">Telefone</label>
+        <input type="number" id="telefone" name="telefone" required>
+
+        <label for="posto">Posto</label>
+        <select id="posto" name="posto" required>
+            <option value="ABC">ABC</option>
+        </select>
+
         <div class="separator"></div>
+
         <h3>Itens Solicitado</h3>
-        <div id="itens"></div>
-        <div class="form-group">
-            <label for="observacoes">Observações:</label>
-            <textarea id="observacoes" name="observacoes" rows="4" style="width: 100%;"></textarea>
+
+        <!-- Repetição de itens -->
+        <div id="itens">
+            <!-- Exemplo de um item -->
+            <div class="item-group">
+                <label for="item1">Item 1</label>
+                <select id="item1" name="item1">
+                    <option value="DEF">DEF</option>
+                </select>
+                <label for="quantidade1">Quantidade</label>
+                <input type="number" id="quantidade1" name="quantidade1" min="0">
+            </div>
+            <!-- Repita o bloco acima 30 vezes para cada item -->
         </div>
+
+        <label for="observacoes">Observações</label>
+        <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+
         <button type="submit">Enviar</button>
     </form>
-    <script src="script.js"></script>
 </body>
 </html>
