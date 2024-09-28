@@ -3,36 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formul�rio de Pedido</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Formulário de Solicitação de Pedido Mensal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .inline-group {
+            display: flex;
+            gap: 10px;
+        }
+        .inline-group input[type="text"],
+        .inline-group input[type="number"] {
+            width: calc(50% - 5px);
+        }
+        .inline-group input[type="number"] {
+            max-width: 80px;
+        }
+        .separator {
+            border-bottom: 1px solid #ccc;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    <form id="pedidoForm">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-
-        <label for="telefone">Telefone:</label>
-        <input type="number" id="telefone" name="telefone" required>
-
-        <label for="posto">Posto:</label>
-        <select id="posto" name="posto">
-            <option value="ABC">ABC</option>
-        </select>
-
-        <hr>
-
-        <h3>Itens Solicitado</h3>
-
-        <div id="itens">
-            <!-- Itens gerados por JavaScript -->
+    <form>
+        <div class="form-group inline-group">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <label for="telefone">Telefone:</label>
+            <input type="number" id="telefone" name="telefone" max="999" required>
         </div>
-
-        <label for="observacoes">Observa��es:</label>
-        <textarea id="observacoes" name="observacoes"></textarea>
-
+        <div class="form-group">
+            <label for="posto">Posto:</label>
+            <select id="posto" name="posto" required>
+                <option value="AC DELCO">AC DELCO</option>
+                <option value="ANHAIA">ANHAIA</option>
+                <option value="ARICANDUVA (GM/KIA)">ARICANDUVA (GM/KIA)</option>
+                <option value="BARUEL">BARUEL</option>
+                <option value="GALPÃO">GALPÃO</option>
+                <option value="GM SÃO BERNARDO DO CAMPO">GM SÃO BERNARDO DO CAMPO</option>
+                <option value="GUARULHOS">GUARULHOS</option>
+                <option value="LA PLAÇA">LA PLAÇA</option>
+                <option value="MAUÁ">MAUÁ</option>
+                <option value="NAZARÉ">NAZARÉ</option>
+                <option value="OFICINA MOREIRA DE GODOY">OFICINA MOREIRA DE GODOY</option>
+                <option value="PENHA">PENHA</option>
+                <option value="R JAFET">R JAFET</option>
+                <option value="SANTO ANDRÉ">SANTO ANDRÉ</option>
+                <option value="SICOOB GUARULHOS">SICOOB GUARULHOS</option>
+                <option value="SICOOB SANTO AMARO">SICOOB SANTO AMARO</option>
+                <option value="SICOOB SANTO ANDRÉ">SICOOB SANTO ANDRÉ</option>
+                <option value="SICOOB SÃO BERNARDO DO CAMPO">SICOOB SÃO BERNARDO DO CAMPO</option>
+                <option value="SICOOB SÃO CAETANO DO SUL">SICOOB SÃO CAETANO DO SUL</option>
+                <option value="VILA GUILHERME">VILA GUILHERME</option>
+                <option value="VILA MARIANA">VILA MARIANA</option>
+                <option value="VW SÃO BERNARDO DO CAMPO">VW SÃO BERNARDO DO CAMPO</option>
+            </select>
+        </div>
+        <div class="separator"></div>
+        <h3>Itens Solicitado</h3>
+        <!-- Repetir o bloco abaixo 30 vezes -->
+        <div class="form-group inline-group">
+            <label>Item 1:</label>
+            <select name="item1">
+                <option value="DEF">DEF</option>
+            </select>
+            <input type="number" name="quantidade1" min="0">
+        </div>
+        <!-- Repita o bloco acima para os 29 itens restantes, alterando os índices conforme necessário -->
+        <div class="form-group">
+            <label for="observacoes">Observações:</label>
+            <textarea id="observacoes" name="observacoes" rows="4" style="width: 100%;"></textarea>
+        </div>
         <button type="submit">Enviar</button>
     </form>
-
-    <script src="script.js"></script>
 </body>
 </html>
