@@ -2,17 +2,18 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
-    margin: 20px;
-    padding: 0;
+    margin: 0;
+    padding: 20px;
 }
 
 form {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 label {
@@ -56,19 +57,8 @@ button:hover {
     margin: 20px 0;
 }
 
-.inline-group {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.inline-group label {
-    flex: 1;
-}
-
-.inline-group select, .inline-group input {
-    flex: 2;
+.item-group {
+    margin-top: 20px;
 }
 
 h3 {
